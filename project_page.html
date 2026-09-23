@@ -247,6 +247,11 @@
       border-radius: var(--radius-sm);
       border: none;
     }
+    .framework-figure-link {
+      display: block;
+      width: 100%;
+      cursor: zoom-in;
+    }
     .method-desc {
       margin-top: 14px;
       text-align: justify;
@@ -397,6 +402,96 @@
       .skill-marquee, .skill-marquee video { height: 96px; }
     }
 
+    /* ========== Assembly comparison ========== */
+    .assembly-comparison-section.section {
+      padding-top: calc(var(--chapter-gap) / 2);
+      padding-bottom: calc(var(--chapter-gap) / 2);
+    }
+    .assembly-comparison-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      width: 100%;
+      gap: 32px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .assembly-comparison-group {
+      display: grid;
+      overflow: hidden;
+      padding: 10px;
+      border: 1px solid #e4e4e4;
+      border-radius: var(--radius-sm);
+      background: var(--white);
+    }
+    .assembly-comparison-row {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: center;
+    }
+    .assembly-comparison-card {
+      overflow: hidden;
+      background: var(--white);
+    }
+    .assembly-comparison-card video {
+      display: block;
+      width: 100%;
+      background: #000;
+    }
+    .assembly-comparison-card-label {
+      padding: 10px 8px;
+      color: var(--text);
+      background: #fafafa;
+      font-size: 1rem;
+      font-weight: 700;
+      text-align: center;
+    }
+    .assembly-comparison-arrow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      color: var(--blue);
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+    }
+
+    /* ========== Human correction ========== */
+    .correction-section.section {
+      padding-top: calc(var(--chapter-gap) / 2);
+      padding-bottom: calc(var(--chapter-gap) / 2);
+    }
+    .correction-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      width: 50%;
+      margin: 0 auto;
+      gap: 24px;
+    }
+    .correction-card {
+      overflow: hidden;
+      border: 1px solid #ececec;
+      border-radius: var(--radius-sm);
+      background: var(--white);
+    }
+    .correction-card video {
+      display: block;
+      width: 100%;
+      background: #000;
+    }
+    .correction-card-label {
+      padding: 10px 8px;
+      text-align: center;
+      color: var(--text);
+      background: #fafafa;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
     /* ========== Long-horizon ========== */
     .longhorizon-grid {
       display: grid;
@@ -482,19 +577,34 @@
     }
     .perturbation-groups {
       display: grid;
-      gap: 18px;
+      gap: 32px;
       margin-top: 24px;
+    }
+    .perturbation-heading {
+      margin-top: 34px;
+    }
+    .perturbation-description {
+      margin-top: 0;
+      text-align: left;
     }
     .perturbation-title {
       margin-bottom: 8px;
       color: var(--text);
       font-size: 1rem;
       font-weight: 700;
+      text-align: center;
     }
     .perturbation-row {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(2, calc((100% - 32px) / 3));
+      justify-content: center;
+      gap: 32px;
+    }
+    .perturbation-card:first-child {
+      grid-column: auto;
+    }
+    .perturbation-card:last-child {
+      grid-column: auto;
     }
     .perturbation-card {
       position: relative;
@@ -509,11 +619,28 @@
       background: #000;
     }
     @media (max-width: 700px) {
+      .assembly-comparison-list {
+        width: 100%;
+        gap: 24px;
+        grid-template-columns: 1fr;
+      }
+      .assembly-comparison-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+      .assembly-comparison-arrow { font-size: 1.2rem; }
+      .assembly-comparison-card-label {
+        padding: 8px 4px;
+        font-size: 0.88rem;
+      }
+      .correction-grid { grid-template-columns: 1fr; }
       .longhorizon-grid { grid-template-columns: 1fr; }
       .lh-card,
       .lh-card:nth-child(4),
       .lh-card:nth-child(5) { grid-column: 1; }
       .perturbation-row { grid-template-columns: 1fr; }
+      .perturbation-card:first-child,
+      .perturbation-card:last-child { grid-column: 1; }
     }
 
     /* ========== Tables ========== */
@@ -804,7 +931,7 @@
     <div class="link-buttons">
       <a href="http://arxiv.org/abs/2605.07605" class="link-btn link-btn--paper" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> Paper</a>
       <a href="http://arxiv.org/abs/2605.07605" class="link-btn link-btn--arxiv" target="_blank" rel="noopener noreferrer"><i class="ai ai-arxiv"></i> arXiv</a>
-      <a href="https://www.youtube.com/watch?v=sZ7zSOQCEgQ" class="link-btn link-btn--video" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> Video</a>
+      <a href="https://www.youtube.com/watch?v=p5F7kxkQgAU" class="link-btn link-btn--video" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> Video</a>
       <a href="#" class="link-btn link-btn--code" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code (Coming Soon)</a>
     </div>
 
@@ -819,7 +946,7 @@
   <div class="container" style="text-align:center;">
 
     <div style="max-width:880px; width:100%; aspect-ratio:16/9; margin:0 auto; border-radius:8px; overflow:hidden;">
-      <iframe class="teaser-media" src="https://www.youtube.com/embed/sZ7zSOQCEgQ" title="BrickCraft teaser video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width:100%; height:100%; border:0;"></iframe>
+      <iframe class="teaser-media" src="https://www.youtube.com/embed/p5F7kxkQgAU" title="BrickCraft teaser video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width:100%; height:100%; border:0;"></iframe>
     </div>
 
   </div>
@@ -883,16 +1010,17 @@
 <!-- ============================================================
      SECTION 3: METHOD OVERVIEW
      ============================================================ -->
-<!-- <section class="section method-section" id="method">
+<section class="section method-section" id="method">
   <div class="container">
-      <div class="section-title section-title--major">Method Overview</div>
-      <img class="method-figure" src="./static/images/brickcraft/method_overview.png" alt="BrickCraft overview: digital design → skill-oriented assembly reasoning → assembly intent grounding → compositional visuomotor execution → physical product" />
-
-      <p class="method-desc">
-        <span class="bc">BrickCraft</span> transforms a digital design into a physical product through three phases: (i) <strong>Skill-Oriented Assembly Reasoning</strong> decomposes the long-horizon task into steps anchored to reference bricks and maps them to reusable primitive skills; (ii) <strong>Assembly Intent Grounding</strong> generates situated manuals to provide spatial guidance; and (iii) <strong>Compositional Visuomotor Execution</strong> chains visuomotor skills to complete the assembly.
-      </p>
+    <div class="section-title section-title--major">Framework Overview</div>
+    <a class="framework-figure-link" href="./static/images/framework_overview.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open the BrickCraft-Duo framework overview at full resolution">
+      <img class="method-figure" src="./static/images/framework_overview.jpg" alt="BrickCraft-Duo framework: a target brick structure is converted into an assembly plan and compiled into a dual-arm skill execution graph composed of Transit, Pick, UniAssembly, and CoAssembly skills" loading="lazy" decoding="async" />
+    </a>
+    <p class="method-desc">
+      Given a target structure, <span class="bc">BrickCraft-Duo</span> autonomously reasons about a feasible assembly plan. It then instantiates and composes reusable skills into a skill execution graph for coordinated long-horizon execution.
+    </p>
   </div>
-</section> -->
+</section>
 
 <!-- ============================================================
      SECTION 4: TECHNICAL IMPLEMENTATION
@@ -998,12 +1126,87 @@
 
 
 <!-- ============================================================
-     SECTION 6: LONG-HORIZON ASSEMBLY
+     SECTION 6: ASSEMBLY COMPARISON
+     ============================================================ -->
+<section class="section assembly-comparison-section" id="assembly-comparison">
+  <div class="container">
+    <div class="section-title section-title--major">UniAssembly vs. CoAssembly</div>
+    <p class="method-desc">
+      The comparisons below demonstrate that, for partially supported structures, UniAssembly can cause the structure to deform or detach, necessitating dual-arm cooperative insertion.
+    </p>
+    <div class="assembly-comparison-list">
+      <div class="assembly-comparison-group">
+        <div class="assembly-comparison-row">
+          <div class="assembly-comparison-card">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="./static/videos/uniassembly1.mp4" type="video/mp4" />
+            </video>
+            <div class="assembly-comparison-card-label">UniAssembly</div>
+          </div>
+          <div class="assembly-comparison-arrow" aria-label="compared with">&rarr;</div>
+          <div class="assembly-comparison-card">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="./static/videos/coassembly1.mp4" type="video/mp4" />
+            </video>
+            <div class="assembly-comparison-card-label">CoAssembly</div>
+          </div>
+        </div>
+      </div>
+      <div class="assembly-comparison-group">
+        <div class="assembly-comparison-row">
+          <div class="assembly-comparison-card">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="./static/videos/uniassembly2.mp4" type="video/mp4" />
+            </video>
+            <div class="assembly-comparison-card-label">UniAssembly</div>
+          </div>
+          <div class="assembly-comparison-arrow" aria-label="compared with">&rarr;</div>
+          <div class="assembly-comparison-card">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="./static/videos/coassembly2.mp4" type="video/mp4" />
+            </video>
+            <div class="assembly-comparison-card-label">CoAssembly</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 7: HUMAN CORRECTION
+     ============================================================ -->
+<!-- <section class="section correction-section" id="human-correction">
+  <div class="container">
+    <div class="section-title section-title--major">Human Correction</div>
+    <p class="method-desc">
+      Targeted human interventions correct underperforming assembly steps, and the resulting trajectories are used to refine the reusable skill policies.
+    </p>
+    <div class="correction-grid">
+      <div class="correction-card">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="./static/videos/human_correction_uniassembly.mp4" type="video/mp4" />
+        </video>
+        <div class="correction-card-label">UniAssembly</div>
+      </div>
+      <div class="correction-card">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="./static/videos/human_correction_coassembly.mp4" type="video/mp4" />
+        </video>
+        <div class="correction-card-label">CoAssembly</div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+
+<!-- ============================================================
+     SECTION 8: LONG-HORIZON ASSEMBLY
      ============================================================ -->
 <section class="section results-section" id="longhorizon">
   <div class="container">
 
-    <div class="section-title section-title--major">Long-Horizon Assembly</div>
+    <div class="section-title section-title--major">Autonomous Long-Horizon Assembly</div>
 
     <div class="longhorizon-grid">
       <div class="lh-card">
@@ -1072,8 +1275,13 @@
       <strong>Completion Rate:</strong> the ratio of successfully completed assembly steps to the total number of assembly steps in a long-horizon task.
     </p>
 
+    <div class="section-title section-title--major perturbation-heading">Adaptation to Workspace Perturbations</div>
+    <p class="method-desc perturbation-description">
+      BrickCraft-Duo does not require precise workspace calibration. The learned assembly skills can adapt to workspace perturbations with closed-loop visual feedback, enabling robust long-horizon assembly under spatial uncertainties.
+    </p>
+
     <div class="perturbation-groups">
-      <div class="perturbation-group">
+      <div class="perturbation-group perturbation-group--structure">
         <div class="perturbation-title">Structure Perturbation</div>
         <div class="perturbation-row">
           <div class="perturbation-card">
