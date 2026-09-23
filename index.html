@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BrickCraft-Duo: Efficient Dual-Arm Skill Learning and Refinement for Compositional Long-Horizon Assembly</title>
+  <title>Efficient Dual-Arm Skill Learning and Refinement for Compositional Long-Horizon Assembly</title>
 
   <!-- KaTeX (math rendering) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
@@ -69,7 +69,6 @@
     .section { padding: 56px 0; }
     .takeaways-section.section { padding-top: 56px; padding-bottom: calc(var(--chapter-gap) / 2); }
     .method-section.section    { padding-top: calc(var(--chapter-gap) / 2); padding-bottom: calc(var(--chapter-gap) / 2); }
-    .skills-section.section    { padding-top: calc(var(--chapter-gap) / 2); padding-bottom: calc(var(--chapter-gap) / 2); }
     .results-section.section   { padding-top: calc(var(--chapter-gap) / 2); padding-bottom: calc(var(--chapter-gap) / 2); }
     .bibtex-section.section    { padding-top: calc(var(--chapter-gap) / 2); padding-bottom: 56px; }
 
@@ -301,105 +300,6 @@
     .takeaway-label {
       font-weight: 600;
       color: var(--text);
-    }
-
-    /* ========== Skills showcase (marquee strip per skill) ========== */
-    .skill-block {
-      border: 1px solid #ececec;
-      border-radius: var(--radius-sm);
-      background: #fafafa;
-      padding: 16px 18px 14px;
-      margin-bottom: 16px;
-    }
-    .skill-block:last-child { margin-bottom: 0; }
-
-    .skill-block-header {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 10px 14px;
-      margin-bottom: 12px;
-    }
-    .skill-tau {
-      font-family: "STIX Two Math", "Times New Roman", serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--brick);
-      letter-spacing: 0.02em;
-    }
-    .skill-desc {
-      font-size: 0.92rem;
-      color: var(--text-light);
-      line-height: 1.5;
-    }
-
-    /* Marquee strip: a wide hstacked video that auto-scrolls left.
-       The video is rendered twice side-by-side so the loop is seamless. */
-    .skill-row {
-      display: grid;
-      grid-template-columns: 64px 1fr;
-      gap: 10px;
-      align-items: stretch;
-      margin-bottom: 8px;
-    }
-    .skill-row:last-child { margin-bottom: 0; }
-    .skill-row-label {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--text);
-      background: #efe9d8;
-      border-radius: 4px;
-      padding: 4px;
-    }
-    .skill-row-label--unseen { background: #e0eaf3; color: #28466b; }
-
-    .skill-marquee {
-      overflow: hidden;
-      border-radius: 4px;
-      background: #000;
-      position: relative;
-      height: 110px;
-    }
-    .skill-marquee-track {
-      display: flex;
-      width: max-content;
-    }
-    .skill-marquee--left  .skill-marquee-track { animation: skill-scroll-left  32s linear infinite; }
-    .skill-marquee--right .skill-marquee-track { animation: skill-scroll-right 32s linear infinite; }
-    .skill-marquee video {
-      height: 110px;
-      width: auto;
-      display: block;
-      flex-shrink: 0;
-      pointer-events: none;
-    }
-    @keyframes skill-scroll-left  { from { transform: translateX(0); }   to { transform: translateX(-50%); } }
-    @keyframes skill-scroll-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-    @media (prefers-reduced-motion: reduce) {
-      .skill-marquee-track { animation: none; }
-    }
-    @media (max-width: 700px) {
-      .skill-row { grid-template-columns: 1fr; gap: 6px; }
-      .skill-row-label { padding: 3px 8px; }
-      .skill-marquee, .skill-marquee video { height: 84px; }
-    }
-
-    .qual-hint {
-      font-size: 0.98rem;
-      line-height: 1.55;
-      color: var(--text-light);
-      margin: 0 0 14px 0;
-      max-width: 52rem;
-      font-style: italic;
-    }
-
-    @media (max-width: 700px) {
-      .skill-marquee, .skill-marquee video { height: 96px; }
     }
 
     /* ========== Assembly comparison ========== */
@@ -911,8 +811,8 @@
     <img class="brickcraft-wordmark" src="./static/images/brickcraft_duo_logo.png" alt="BrickCraft-Duo" style="max-width: 400px;" />
 
     <h1 class="paper-title">
-      <span class="paper-title__line">BRICKCRAFT-DUO: Efficient Dual-Arm Skill Learning and Refinement</span>
-      <span class="paper-title__sub">for Compositional Long-Horizon Assembly</span>
+      <span class="paper-title__line">Efficient Dual-Arm Skill Learning and Refinement for Compositional</span>
+      <span class="paper-title__sub">Long-Horizon Assembly</span>
     </h1>
 
     <div class="authors">
@@ -1038,91 +938,6 @@
 </section> -->
 
 
-<!-- ============================================================
-     SECTION 5: VISUOMOTOR SKILLS — Tabs per primitive skill
-     ============================================================ -->
-<!-- <section class="section skills-section" id="skills">
-  <div class="container">
-    <div class="section-title section-title--major">Qualitative Results</div>
-    <p class="method-desc" style="margin-bottom: 1rem;">
-      We trained three visuomotor assembly skills on a broad range of demonstrations. The situated manual enables these skills to execute diverse assembly tasks with seamless adaptation to unseen structures.
-    </p>
-    <div class="skills-stack">
-      <div class="skill-block">
-        <div class="skill-block-header">
-          <span class="skill-tau">τ = [0, 0, 1, 0]</span>
-          <span class="skill-desc">Stack target brick directly on top of the highlighted reference brick.</span>
-        </div>
-        <div class="skill-row">
-          <div class="skill-row-label">Seen</div>
-          <div class="skill-marquee skill-marquee--right">
-            <div class="skill-marquee-track">
-              <video class="skill-strip" src="./static/videos/brickcraft/skills/skill_strip_0010_seen.mp4" autoplay muted loop playsinline preload="auto"></video>
-              <video class="skill-strip" src="./static/videos/brickcraft/skills/skill_strip_0010_seen.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
-            </div>
-          </div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-row-label skill-row-label--unseen">Unseen</div>
-          <div class="skill-marquee skill-marquee--left">
-            <div class="skill-marquee-track">
-              <video class="skill-strip" src="./static/videos/brickcraft/skills/skill_strip_0010_unseen.mp4" autoplay muted loop playsinline preload="auto"></video>
-              <video class="skill-strip" src="./static/videos/brickcraft/skills/skill_strip_0010_unseen.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="skill-block">
-        <div class="skill-block-header">
-          <span class="skill-tau">τ = [1, 0, 1, 0]</span>
-          <span class="skill-desc">Place target brick offset by 1 stud in x, then stack on top of the reference.</span>
-        </div>
-        <div class="skill-row">
-          <div class="skill-row-label">Seen</div>
-          <div class="skill-marquee skill-marquee--right">
-            <div class="skill-marquee-track">
-              <video class="skill-strip" src="./static/videos/brickcraft/skills/skill_strip_1010_seen.mp4" autoplay muted loop playsinline preload="auto"></video>
-              <video class="skill-strip" src="./static/videos/brickcraft/skills/skill_strip_1010_seen.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
-            </div>
-          </div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-row-label skill-row-label--unseen">Unseen</div>
-          <div class="skill-marquee skill-marquee--left">
-            <div class="skill-marquee-track">
-              <video class="skill-strip" src="./static/videos/brickcraft/skills/skill_strip_1010_unseen.mp4" autoplay muted loop playsinline preload="auto"></video>
-              <video class="skill-strip" src="./static/videos/brickcraft/skills/skill_strip_1010_unseen.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="skill-block">
-        <div class="skill-block-header">
-          <span class="skill-tau">τ = [2, 0, 0, 0]</span>
-          <span class="skill-desc">Place target brick at the same level as the reference, offset by 2 studs in x.</span>
-        </div>
-        <div class="skill-row">
-          <div class="skill-row-label">Seen</div>
-          <div class="skill-marquee skill-marquee--right">
-            <div class="skill-marquee-track">
-              <video class="skill-strip" src="./static/videos/brickcraft/skills/skill_strip_2000_seen.mp4" autoplay muted loop playsinline preload="auto"></video>
-              <video class="skill-strip" src="./static/videos/brickcraft/skills/skill_strip_2000_seen.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
-            </div>
-          </div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-row-label skill-row-label--unseen">Unseen</div>
-          <div class="skill-marquee skill-marquee--left">
-            <div class="skill-marquee-track">
-              <video class="skill-strip" src="./static/videos/brickcraft/skills/skill_strip_2000_unseen.mp4" autoplay muted loop playsinline preload="auto"></video>
-              <video class="skill-strip" src="./static/videos/brickcraft/skills/skill_strip_2000_unseen.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
 
 
 <!-- ============================================================
@@ -1429,7 +1244,7 @@
         </div>
         <div class="rw-text">
           <h3 class="rw-title">BrickCraft: Visuomotor Skill Composition with Situated Manual Guidance for Long-Horizon Interlocking Brick Assembly</h3>
-          <p class="rw-authors">Jichuan Yu, Bowei Li, Zhenran Tang, Guanxing Lu, Chuxiong Hu, Ruixuan Liu, Changliu Liu</p>
+          <p class="rw-authors">Jichuan Yu*, Bowei Li*, Zhenran Tang, Guanxing Lu, Chuxiong Hu, Ruixuan Liu, Changliu Liu</p>
           <p class="rw-venue">ArXiv, 2026</p>
           <p class="rw-links">
             <a class="rw-btn" href="https://arxiv.org/abs/2605.07605" target="_blank" rel="noopener noreferrer">Paper</a>
@@ -1549,13 +1364,13 @@
 <!-- ============================================================
      SECTION 8: BIBTEX
      ============================================================ -->
-<section class="section bibtex-section">
+<!-- <section class="section bibtex-section">
   <div class="container">
     <div class="section-title">BibTeX</div>
     <div class="bibtex-block">
       <button class="copy-btn" id="copy-bib">Copy</button>
       <pre id="bibtex-content">@misc{yu2026brickcraft,
-  title={BrickCraft-Duo: Efficient Dual-Arm Skill Learning and Refinement for Compositional Long-Horizon Assembly},
+  title={Efficient Dual-Arm Skill Learning and Refinement for Compositional Long-Horizon Assembly},
   author={Jichuan Yu and Zhenyu Xiao and Ze Wang and Ruixuan Liu and Changliu Liu and Chuxiong Hu},
   year={2026},
   eprint={2605.07605},
@@ -1566,6 +1381,7 @@
     </div>
   </div>
 </section>
+-->
 
 
 <!-- ============================================================
